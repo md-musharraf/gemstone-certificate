@@ -1,0 +1,16 @@
+{
+  "name": "gemstone-certificate-generator",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": { "start": "node backend/server.js", "dev": "nodemon backend/server.js" },
+  "dependencies": {
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "express-mongo-sanitize": "^2.2.0",
+    "mongoose": "^8.9.3",
+    "multer": "^2.0.2",
+    "pdfkit": "^0.16.0",
+    "qrcode": "^1.5.4"
+  },
+  "devDependencies": { "nodemon": "^3.1.9" }
+}

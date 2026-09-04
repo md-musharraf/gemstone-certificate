@@ -1,0 +1,431 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>International Gemological Archive | Certification Studio</title>
+  <meta name="description" content="Professional gemstone identification laboratory certificate generator with live 3D preview and digital registry.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Header -->
+  <header class="app-header">
+    <div class="header-content">
+      <div class="brand-group">
+        <div class="brand-logo">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M6 3h12l4 7-10 11L2 10l4-7z"></path>
+            <path d="M2 10h20"></path>
+            <path d="M10 3l-4 7 6 11 6-11-4-7"></path>
+          </svg>
+        </div>
+        <div>
+          <h1 class="brand-title">INTERNATIONAL GEMOLOGICAL ARCHIVE</h1>
+          <p class="brand-tagline">Laboratory Identification & Cryptographic Registry System</p>
+        </div>
+      </div>
+      <div class="header-actions">
+        <div class="live-pill">
+          <span class="live-indicator"></span>
+          <span>Live Sync Active</span>
+        </div>
+        <div class="official-badge">
+          <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+          <span>Official Lab System</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <main class="studio-layout">
+    <!-- Left Column: Studio Form & Presets -->
+    <section class="studio-editor">
+      <!-- Quick Presets -->
+      <div class="panel preset-panel">
+        <div class="preset-header">
+          <span class="panel-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+          </span>
+          <div>
+            <h2 class="panel-title">Quick Gemstone Presets</h2>
+            <p class="panel-desc">Autofill certified scientific parameters for notable gemstones</p>
+          </div>
+        </div>
+        <div class="preset-chips" id="preset-chips">
+          <button type="button" class="preset-chip active" data-preset="sapphire">Ceylon Sapphire</button>
+          <button type="button" class="preset-chip" data-preset="ruby">Burmese Ruby</button>
+          <button type="button" class="preset-chip" data-preset="emerald">Colombian Emerald</button>
+          <button type="button" class="preset-chip" data-preset="diamond">Yellow Diamond</button>
+          <button type="button" class="preset-chip" data-preset="alexandrite">Alexandrite</button>
+          <button type="button" class="preset-chip" data-preset="tourmaline">Paraíba Tourmaline</button>
+          <button type="button" class="preset-chip" data-preset="tanzanite">Tanzanite</button>
+        </div>
+      </div>
+
+      <!-- Generator Form -->
+      <form id="certificate-form" class="panel form-panel" enctype="multipart/form-data">
+        <!-- Section 1: Identity -->
+        <fieldset class="form-section">
+          <legend class="section-legend">
+            <span class="step-badge">1</span> Specimen Identity
+          </legend>
+          <div class="form-grid">
+            <div class="form-group full-width">
+              <label for="gem-name">Gemstone Variety & Name <span class="req">*</span></label>
+              <input id="gem-name" name="name" type="text" placeholder="e.g. Natural Royal Blue Sapphire" required autocomplete="off">
+            </div>
+            <div class="form-group">
+              <label for="gem-weight">Weight (Carats) <span class="req">*</span></label>
+              <input id="gem-weight" name="weight" type="text" placeholder="e.g. 3.85 ct" required autocomplete="off">
+            </div>
+            <div class="form-group">
+              <label for="gem-shape">Shape & Cut <span class="req">*</span></label>
+              <input id="gem-shape" name="shapeCut" type="text" list="shapes-list" placeholder="e.g. Cushion Mixed Cut" required autocomplete="off">
+              <datalist id="shapes-list">
+                <option value="Cushion Mixed Cut">
+                <option value="Oval Brilliant Cut">
+                <option value="Emerald Cut">
+                <option value="Round Brilliant Cut">
+                <option value="Pear Brilliant Cut">
+                <option value="Heart Brilliant Cut">
+                <option value="Cabochon">
+              </datalist>
+            </div>
+            <div class="form-group">
+              <label for="gem-colour">Colour Grade <span class="req">*</span></label>
+              <input id="gem-colour" name="colour" type="text" placeholder="e.g. Vivid Royal Blue" required autocomplete="off">
+            </div>
+            <div class="form-group">
+              <label for="gem-species">Species / Group <span class="req">*</span></label>
+              <input id="gem-species" name="speciesGroup" type="text" placeholder="e.g. Natural Corundum" required autocomplete="off">
+            </div>
+          </div>
+        </fieldset>
+
+        <!-- Section 2: Physical & Optical -->
+        <fieldset class="form-section">
+          <legend class="section-legend">
+            <span class="step-badge">2</span> Physical & Optical Analysis
+          </legend>
+          <div class="form-grid">
+            <div class="form-group">
+              <label for="gem-ri">Refractive Index <span class="req">*</span></label>
+              <input id="gem-ri" name="refractiveIndex" type="text" placeholder="e.g. 1.762 - 1.770" required autocomplete="off">
+            </div>
+            <div class="form-group">
+              <label for="gem-hardness">Mohs Hardness <span class="req">*</span></label>
+              <input id="gem-hardness" name="hardness" type="text" placeholder="e.g. 9.0 Mohs" required autocomplete="off">
+            </div>
+            <div class="form-group">
+              <label for="gem-clarity">Clarity Scale <span class="req">*</span></label>
+              <input id="gem-clarity" name="clarity" type="text" list="clarity-list" placeholder="e.g. Eye Clean (VVS)" required autocomplete="off">
+              <datalist id="clarity-list">
+                <option value="Loupe Clean (IF)">
+                <option value="Eye Clean (VVS)">
+                <option value="Very Slightly Included (VS)">
+                <option value="Slightly Included (SI)">
+                <option value="Included (I)">
+              </datalist>
+            </div>
+            <div class="form-group">
+              <label for="gem-issued">Issued To (Owner / Client) <span class="req">*</span></label>
+              <input id="gem-issued" name="issuedTo" type="text" placeholder="e.g. Crown Gemological Gallery Ltd." required autocomplete="off">
+            </div>
+            <div class="form-group full-width">
+              <label for="gem-comments">Laboratory Observations & Origin</label>
+              <textarea id="gem-comments" name="comments" placeholder="e.g. No indications of thermal treatment (Unheated). Geographic Origin: Ceylon (Sri Lanka)."></textarea>
+            </div>
+          </div>
+        </fieldset>
+
+        <!-- Section 3: Specimen Image -->
+        <fieldset class="form-section">
+          <legend class="section-legend">
+            <span class="step-badge">3</span> Specimen Photography
+          </legend>
+          <div class="upload-zone" id="drop-zone">
+            <input type="file" id="image-input" name="image" accept="image/png,image/jpeg,image/webp" class="file-hidden">
+            <div class="upload-idle" id="upload-idle">
+              <div class="upload-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="17 8 12 3 7 8"></polyline><line x1="12" y1="3" x2="12" y2="15"></line></svg>
+              </div>
+              <p class="upload-title">Drop specimen photo here, or <span>browse</span></p>
+              <p class="upload-hint">PNG, JPEG, WebP up to 5 MB • Automatically formatted to card frame</p>
+            </div>
+            <div class="upload-preview hidden" id="upload-preview">
+              <img id="preview-thumb" src="" alt="Specimen Thumbnail">
+              <div class="preview-info">
+                <p id="preview-filename" class="preview-name"></p>
+                <p id="preview-filesize" class="preview-size"></p>
+              </div>
+              <button type="button" id="remove-image" class="btn-text-danger" title="Remove image">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg>
+              </button>
+            </div>
+          </div>
+        </fieldset>
+
+        <!-- Form Submit Bar -->
+        <div class="form-actions">
+          <button type="submit" id="submit-btn" class="btn btn-gold btn-large">
+            <svg class="btn-icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path></svg>
+            <span>GENERATE OFFICIAL CERTIFICATE</span>
+          </button>
+          <button type="button" id="reset-btn" class="btn btn-secondary">
+            Reset
+          </button>
+        </div>
+      </form>
+    </section>
+
+    <!-- Right Column: Live Interactive 3D Card Preview -->
+    <aside class="studio-preview-col">
+      <div class="preview-sticky">
+        <div class="preview-toolbar">
+          <div class="toolbar-heading">
+            <span class="pulse-dot"></span>
+            <h3>Live Card Preview</h3>
+          </div>
+          <button type="button" id="flip-card-btn" class="btn-flip">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 4 23 10 17 10"></polyline><polyline points="1 20 1 14 7 14"></polyline><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"></path></svg>
+            <span id="flip-label">Flip to Reverse</span>
+          </button>
+        </div>
+
+        <!-- 3D Card Scene -->
+        <div class="card-scene" id="card-scene">
+          <div class="card-flipper" id="card-flipper">
+            <!-- FRONT SIDE -->
+            <div class="card-face card-front">
+              <div class="card-inner-border"></div>
+              <div class="card-corner tl"></div>
+              <div class="card-corner tr"></div>
+              <div class="card-corner bl"></div>
+              <div class="card-corner br"></div>
+
+              <!-- Header -->
+              <div class="c-header">
+                <div class="c-logo-wrap">
+                  <svg class="c-diamond" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                    <path d="M6 3h12l4 7-10 11L2 10l4-7z"></path>
+                    <path d="M2 10h20"></path>
+                    <path d="M10 3l-4 7 6 11 6-11-4-7"></path>
+                  </svg>
+                  <div>
+                    <div class="c-lab-title">INTERNATIONAL GEMOLOGICAL ARCHIVE</div>
+                    <div class="c-lab-sub">AUTHENTICITY • IDENTIFICATION • LABORATORY REPORT</div>
+                  </div>
+                </div>
+                <div class="c-report-badge">
+                  <div class="c-badge-title">IDENTIFICATION CARD</div>
+                  <div class="c-badge-no" id="live-cert-no">REPORT #JGT-PREVIEW</div>
+                </div>
+              </div>
+
+              <!-- Body: Photo & Specs -->
+              <div class="c-front-body">
+                <!-- Left Photo & Seal -->
+                <div class="c-photo-col">
+                  <div class="c-photo-frame">
+                    <img id="live-photo" class="hidden" src="" alt="Specimen">
+                    <div id="live-placeholder" class="c-vector-gem">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="#C5A059" stroke-width="1.4">
+                        <polygon points="6,3 18,3 22,9 12,21 2,9" fill="#FDF8EC"/>
+                        <polyline points="2,9 22,9"/>
+                        <line x1="10" y1="3" x2="8" y2="9"/>
+                        <line x1="8" y1="9" x2="12" y2="21"/>
+                        <line x1="14" y1="3" x2="16" y2="9"/>
+                        <line x1="16" y1="9" x2="12" y2="21"/>
+                        <line x1="8" y1="9" x2="16" y2="9"/>
+                      </svg>
+                      <span>OFFICIAL SPECIMEN</span>
+                    </div>
+                  </div>
+                  <!-- Embossed Gold Seal -->
+                  <div class="c-seal">
+                    <div class="c-seal-rays"></div>
+                    <div class="c-seal-inner">
+                      <span class="c-seal-text">VERIFIED</span>
+                      <span class="c-seal-sub">GENUINE LAB</span>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Right Spec Column -->
+                <div class="c-spec-col">
+                  <div class="c-section-tag">GEMSTONE IDENTIFICATION</div>
+                  <div class="c-gem-name" id="live-name">Natural Royal Blue Sapphire</div>
+
+                  <div class="c-rows">
+                    <div class="c-row"><span class="c-k">WEIGHT / CARAT</span><span class="c-v bold" id="live-weight">3.85 ct</span></div>
+                    <div class="c-row"><span class="c-k">SHAPE / CUT</span><span class="c-v" id="live-shape">Cushion Mixed Cut</span></div>
+                    <div class="c-row"><span class="c-k">COLOUR GRADE</span><span class="c-v" id="live-colour">Vivid Royal Blue</span></div>
+                    <div class="c-row"><span class="c-k">SPECIES / GROUP</span><span class="c-v" id="live-species">Natural Corundum</span></div>
+                    <div class="c-row"><span class="c-k">CLARITY GRADE</span><span class="c-v" id="live-clarity">Eye Clean (VVS)</span></div>
+                    <div class="c-row"><span class="c-k">ISSUED TO</span><span class="c-v" id="live-issued">Crown Gemological Gallery Ltd.</span></div>
+                    <div class="c-row"><span class="c-k">ISSUE DATE</span><span class="c-v" id="live-date">Today</span></div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Footer -->
+              <div class="c-footer">
+                <span>SECURITY DOCUMENT • GENUINE REGISTERED IDENTIFICATION REPORT • SCAN REVERSE QR TO VERIFY</span>
+              </div>
+            </div>
+
+            <!-- BACK SIDE -->
+            <div class="card-face card-back">
+              <div class="card-inner-border"></div>
+              <div class="card-corner tl"></div>
+              <div class="card-corner tr"></div>
+              <div class="card-corner bl"></div>
+              <div class="card-corner br"></div>
+
+              <!-- Back Header -->
+              <div class="c-header c-back-header">
+                <div class="c-lab-title">ANALYTICAL GEMOLOGICAL REPORT</div>
+                <div class="c-badge-no" id="live-back-no">OFFICIAL RECORD • ID: PREVIEW</div>
+              </div>
+
+              <!-- Back Body -->
+              <div class="c-back-body">
+                <!-- Left: Physical props & Comments & Signature -->
+                <div class="c-back-left">
+                  <div class="c-section-tag">PHYSICAL & OPTICAL PROPERTIES</div>
+                  <div class="c-rows">
+                    <div class="c-row"><span class="c-k">REFRACTIVE INDEX</span><span class="c-v" id="live-ri">1.762 - 1.770</span></div>
+                    <div class="c-row"><span class="c-k">HARDNESS (MOHS)</span><span class="c-v" id="live-hardness">9.0 Mohs</span></div>
+                    <div class="c-row"><span class="c-k">CLARITY SCALE</span><span class="c-v" id="live-clarity-back">Eye Clean (VVS)</span></div>
+                    <div class="c-row"><span class="c-k">SPECIES / GROUP</span><span class="c-v" id="live-species-back">Natural Corundum</span></div>
+                  </div>
+
+                  <div class="c-comments-box">
+                    <div class="c-comments-k">LABORATORY COMMENTS & OBSERVATIONS:</div>
+                    <div class="c-comments-v" id="live-comments">No indications of thermal treatment (Unheated). Origin: Ceylon (Sri Lanka).</div>
+                  </div>
+
+                  <div class="c-signature-wrap">
+                    <span class="c-sig-label">AUTHORIZED SIGNATURE</span>
+                    <svg class="c-signature-svg" viewBox="0 0 100 24" fill="none" stroke="#071527" stroke-width="1.6">
+                      <path d="M5 18 C 15 6, 25 22, 42 12 C 52 6, 62 18, 80 10 C 88 6, 95 14, 98 12"/>
+                    </svg>
+                    <div class="c-sig-line"></div>
+                    <div class="c-sig-title">Chief Senior Gemologist, FGA DGA</div>
+                  </div>
+                </div>
+
+                <!-- Right: QR Code & Verification info -->
+                <div class="c-back-right">
+                  <div class="c-qr-container">
+                    <div class="c-qr-mock">
+                      <svg viewBox="0 0 100 100" fill="#071527">
+                        <!-- QR Mock pattern -->
+                        <rect x="10" y="10" width="26" height="26" fill="none" stroke="#071527" stroke-width="5"/>
+                        <rect x="17" y="17" width="12" height="12"/>
+                        <rect x="64" y="10" width="26" height="26" fill="none" stroke="#071527" stroke-width="5"/>
+                        <rect x="71" y="17" width="12" height="12"/>
+                        <rect x="10" y="64" width="26" height="26" fill="none" stroke="#071527" stroke-width="5"/>
+                        <rect x="17" y="71" width="12" height="12"/>
+                        <rect x="42" y="14" width="8" height="8"/>
+                        <rect x="42" y="28" width="8" height="14"/>
+                        <rect x="14" y="42" width="14" height="8"/>
+                        <rect x="34" y="42" width="16" height="16"/>
+                        <rect x="56" y="42" width="8" height="16"/>
+                        <rect x="70" y="42" width="16" height="8"/>
+                        <rect x="42" y="64" width="8" height="22"/>
+                        <rect x="56" y="64" width="18" height="8"/>
+                        <rect x="80" y="56" width="8" height="16"/>
+                        <rect x="68" y="78" width="18" height="8"/>
+                      </svg>
+                    </div>
+                    <div class="c-qr-label">SCAN TO VERIFY</div>
+                    <div class="c-qr-sub">Instant 24/7 Digital Registry Validation</div>
+                    <div class="c-qr-pill">SECURE QR VALIDATION</div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Back Footer -->
+              <div class="c-footer">
+                <span>THIS IDENTIFICATION CARD REPRESENTS THE OPINION OF SPECIALIZED GEMOLOGICAL EXPERTS • ALL RIGHTS RESERVED</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <p class="preview-tip">
+          <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+          Card size: Standard ISO/IEC 7810 CR80 (85.6 × 54 mm). Ready for high-resolution dual-sided card printing.
+        </p>
+      </div>
+    </aside>
+  </main>
+
+  <!-- Success Modal Dialog -->
+  <dialog id="result-dialog" class="modal-dialog">
+    <div class="modal-backdrop"></div>
+    <div class="modal-card">
+      <div class="modal-header">
+        <div class="modal-badge-check">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+        </div>
+        <div>
+          <h2 class="modal-title">Certificate Successfully Issued</h2>
+          <p class="modal-subtitle">Official Gemological Record Created & Registered</p>
+        </div>
+        <button type="button" id="close-dialog" class="btn-close" aria-label="Close dialog">×</button>
+      </div>
+
+      <div class="modal-body">
+        <div class="cert-meta-banner">
+          <div>
+            <span class="meta-label">REGISTERED CERTIFICATE NUMBER</span>
+            <div class="cert-number-display" id="dialog-cert-number">JGT-000000</div>
+          </div>
+          <button type="button" id="copy-number-btn" class="btn-copy">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+            <span id="copy-text">Copy Number</span>
+          </button>
+        </div>
+
+        <div class="modal-actions-grid">
+          <a id="dialog-download" class="btn btn-gold btn-large" download>
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+            DOWNLOAD PRINT-READY PDF
+          </a>
+          <button type="button" id="dialog-print" class="btn btn-secondary btn-large">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 6 2 18 2 18 9"></polyline><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path><rect x="6" y="14" width="12" height="8"></rect></svg>
+            PRINT CERTIFICATE
+          </button>
+        </div>
+
+        <div class="verify-link-box">
+          <span class="verify-icon">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>
+          </span>
+          <div class="verify-text">
+            <span>Public Online Verification Link:</span>
+            <a id="dialog-verify-url" href="#" target="_blank" rel="noopener"></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" id="create-another-btn" class="btn btn-outline">
+          Create Another Certificate
+        </button>
+      </div>
+    </div>
+  </dialog>
+
+  <!-- Toast Notification Container -->
+  <div id="toast-container" class="toast-container"></div>
+
+  <script src="app.js"></script>
+</body>
+</html>
