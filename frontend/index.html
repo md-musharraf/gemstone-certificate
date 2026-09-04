@@ -40,10 +40,23 @@
     </div>
   </header>
 
+  <!-- Mobile View Switcher (Visible on Mobile/Tablet <= 1024px) -->
+  <nav class="mobile-nav-switcher" id="mobile-nav-switcher" aria-label="Mobile View Switcher">
+    <button type="button" class="mobile-tab-btn active" id="tab-btn-editor" data-target="editor">
+      <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path></svg>
+      <span>Specimen Form</span>
+    </button>
+    <button type="button" class="mobile-tab-btn" id="tab-btn-preview" data-target="preview">
+      <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><polygon points="6 3 18 3 22 9 12 21 2 9"></polygon><line x1="2" y1="9" x2="22" y2="9"></line></svg>
+      <span>Live Card Preview</span>
+      <span class="preview-badge-dot"></span>
+    </button>
+  </nav>
+
   <!-- Main Container -->
   <main class="studio-layout">
     <!-- Left Column: Studio Form & Presets -->
-    <section class="studio-editor">
+    <section class="studio-editor" id="studio-editor">
       <!-- Quick Presets -->
       <div class="panel preset-panel">
         <div class="preset-header">
@@ -183,7 +196,7 @@
     </section>
 
     <!-- Right Column: Live Interactive 3D Card Preview -->
-    <aside class="studio-preview-col">
+    <aside class="studio-preview-col" id="studio-preview-col">
       <div class="preview-sticky">
         <div class="preview-toolbar">
           <div class="toolbar-heading">
@@ -365,6 +378,12 @@
       </div>
     </aside>
   </main>
+
+  <!-- Mobile Floating Quick Preview Button -->
+  <button type="button" id="mobile-floating-btn" class="mobile-floating-btn" aria-label="Toggle Live Certificate Card">
+    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><polygon points="6 3 18 3 22 9 12 21 2 9"></polygon><line x1="2" y1="9" x2="22" y2="9"></line></svg>
+    <span id="floating-btn-text">View Card</span>
+  </button>
 
   <!-- Success Modal Dialog -->
   <dialog id="result-dialog" class="modal-dialog">

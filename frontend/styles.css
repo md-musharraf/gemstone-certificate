@@ -210,6 +210,112 @@ body {
 }
 
 /* ==========================================================================
+   Mobile Segmented Navigation Switcher & Floating Action
+   ========================================================================== */
+
+.mobile-nav-switcher {
+  display: none;
+  background: rgba(255, 255, 255, 0.96);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1.5px solid var(--border-subtle);
+  padding: 8px 16px;
+  position: sticky;
+  top: 72px;
+  z-index: 95;
+  box-shadow: 0 4px 15px rgba(11, 37, 69, 0.03);
+  justify-content: center;
+}
+
+@media (max-width: 1024px) {
+  .mobile-nav-switcher {
+    display: flex;
+    gap: 10px;
+  }
+}
+
+.mobile-tab-btn {
+  flex: 1;
+  max-width: 260px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 16px;
+  border-radius: 999px;
+  border: 1.5px solid var(--border-subtle);
+  background: #F8FAFD;
+  color: var(--text-secondary);
+  font-family: var(--font-sans);
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  position: relative;
+}
+
+.mobile-tab-btn:hover {
+  border-color: var(--gold-border);
+  color: var(--navy-dark);
+}
+
+.mobile-tab-btn.active {
+  background: var(--navy-dark);
+  border-color: var(--gold-border);
+  color: #F7F1E1;
+  box-shadow: 0 3px 12px rgba(7, 21, 39, 0.2);
+}
+
+.mobile-tab-btn.active svg {
+  color: var(--gold-border);
+}
+
+.preview-badge-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent-green);
+  box-shadow: 0 0 6px var(--accent-green);
+}
+
+.mobile-floating-btn {
+  display: none;
+  position: fixed;
+  bottom: 22px;
+  right: 20px;
+  z-index: 990;
+  background: linear-gradient(135deg, #0B2545 0%, #071527 100%);
+  color: #F7F1E1;
+  border: 1.5px solid var(--gold-border);
+  box-shadow: 0 8px 25px rgba(7, 21, 39, 0.35), 0 0 15px rgba(197, 160, 89, 0.25);
+  border-radius: 999px;
+  padding: 13px 22px;
+  font-family: var(--font-sans);
+  font-size: 13.5px;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  align-items: center;
+  gap: 9px;
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.mobile-floating-btn svg {
+  color: var(--gold-border);
+}
+
+.mobile-floating-btn:active {
+  transform: scale(0.95);
+}
+
+@media (max-width: 1024px) {
+  .mobile-floating-btn {
+    display: inline-flex;
+  }
+}
+
+
+/* ==========================================================================
    Studio Layout (2 Columns: Editor & Live Preview)
    ========================================================================== */
 
@@ -709,7 +815,11 @@ textarea {
 /* 3D Perspective Scene */
 .card-scene {
   width: 100%;
+  max-width: 480px;
+  margin: 0 auto;
   perspective: 1200px;
+  container-type: inline-size;
+  container-name: card;
 }
 
 .card-flipper {
@@ -1386,4 +1496,507 @@ textarea {
 @keyframes toast-in {
   from { opacity: 0; transform: translateX(30px); }
   to { opacity: 1; transform: translateX(0); }
+}
+
+
+/* Container Query Proportional Scaling for Physical CR80 Card Replica */
+@container card (max-width: 1000px) {
+  .c-header {
+    padding: clamp(4px, 1.4cqw, 7px) clamp(6px, 2.2cqw, 11px);
+  }
+  .c-diamond {
+    width: clamp(14px, 4cqw, 20px);
+    height: clamp(14px, 4cqw, 20px);
+  }
+  .c-lab-title {
+    font-size: clamp(6px, 1.85cqw, 9px);
+  }
+  .c-lab-sub {
+    font-size: clamp(3.8px, 1.1cqw, 5.5px);
+  }
+  .c-badge-title {
+    font-size: clamp(4.5px, 1.35cqw, 6.5px);
+  }
+  .c-badge-no {
+    font-size: clamp(4px, 1.2cqw, 6px);
+  }
+  .c-front-body {
+    grid-template-columns: clamp(75px, 23cqw, 115px) 1fr;
+    gap: clamp(6px, 2cqw, 11px);
+    padding: clamp(5px, 1.6cqw, 9px) clamp(6px, 2cqw, 11px);
+  }
+  .c-photo-frame {
+    width: clamp(70px, 21cqw, 100px);
+    height: clamp(76px, 23cqw, 108px);
+    padding: clamp(2px, 0.6cqw, 3px);
+  }
+  .c-vector-gem svg {
+    width: clamp(28px, 9cqw, 44px);
+    height: clamp(28px, 9cqw, 44px);
+  }
+  .c-vector-gem span {
+    font-size: clamp(4.2px, 1.25cqw, 6.2px);
+  }
+  .c-seal {
+    width: clamp(26px, 8cqw, 38px);
+    height: clamp(26px, 8cqw, 38px);
+  }
+  .c-seal-inner {
+    width: clamp(20px, 6.4cqw, 30px);
+    height: clamp(20px, 6.4cqw, 30px);
+  }
+  .c-seal-text {
+    font-size: clamp(3.8px, 1.1cqw, 5.2px);
+  }
+  .c-seal-sub {
+    font-size: clamp(2.8px, 0.8cqw, 3.8px);
+  }
+  .c-section-tag {
+    font-size: clamp(4.5px, 1.3cqw, 6.5px);
+  }
+  .c-gem-name {
+    font-size: clamp(8.5px, 2.45cqw, 12px);
+    margin-bottom: clamp(3px, 1cqw, 6px);
+    max-width: clamp(130px, 50cqw, 260px);
+  }
+  .c-row {
+    padding-bottom: clamp(1px, 0.4cqw, 2px);
+    font-size: clamp(5.2px, 1.5cqw, 7.5px);
+  }
+  .c-k {
+    font-size: clamp(4.2px, 1.2cqw, 6px);
+  }
+  .c-v {
+    font-size: clamp(5px, 1.45cqw, 7.2px);
+    max-width: clamp(90px, 32cqw, 160px);
+  }
+  .c-footer {
+    padding: clamp(2px, 0.7cqw, 4px) clamp(4px, 1.5cqw, 8px);
+    font-size: clamp(3.4px, 1cqw, 4.8px);
+  }
+  .c-back-body {
+    grid-template-columns: 1fr clamp(75px, 23cqw, 110px);
+    gap: clamp(7px, 2cqw, 12px);
+    padding: clamp(5px, 1.6cqw, 9px) clamp(6px, 2cqw, 11px);
+  }
+  .c-comments-box {
+    padding: clamp(3px, 0.9cqw, 5px) clamp(4px, 1.2cqw, 7px);
+    margin-top: clamp(3px, 0.9cqw, 5px);
+  }
+  .c-comments-k {
+    font-size: clamp(4px, 1.15cqw, 5.5px);
+  }
+  .c-comments-v {
+    font-size: clamp(4.5px, 1.3cqw, 6.5px);
+  }
+  .c-signature-svg {
+    width: clamp(65px, 19cqw, 92px);
+    height: clamp(10px, 2.9cqw, 14px);
+  }
+  .c-sig-line {
+    width: clamp(75px, 22cqw, 108px);
+  }
+  .c-sig-label,
+  .c-sig-title {
+    font-size: clamp(3.8px, 1.05cqw, 5px);
+  }
+  .c-qr-container {
+    padding: clamp(3px, 1.1cqw, 6px);
+  }
+  .c-qr-mock {
+    width: clamp(45px, 14cqw, 68px);
+    height: clamp(45px, 14cqw, 68px);
+  }
+  .c-qr-label {
+    font-size: clamp(4.5px, 1.35cqw, 6.5px);
+    margin-top: clamp(2px, 0.7cqw, 4px);
+  }
+  .c-qr-sub {
+    font-size: clamp(3.4px, 0.95cqw, 4.5px);
+  }
+  .c-qr-pill {
+    font-size: clamp(3.5px, 1cqw, 4.8px);
+    padding: clamp(1px, 0.4cqw, 2px) clamp(3px, 0.9cqw, 5px);
+    margin-top: clamp(2px, 0.7cqw, 4px);
+  }
+}
+
+
+/* ==========================================================================
+   Comprehensive Mobile & Tablet Media Queries (320px to 1024px)
+   ========================================================================== */
+
+/* Tablet & Mobile Screens (<= 1024px) */
+@media (max-width: 1024px) {
+  .studio-layout {
+    grid-template-columns: 1fr;
+    gap: 28px;
+    margin: 20px auto 60px;
+    padding: 0 20px;
+  }
+
+  .preview-sticky {
+    position: static;
+    top: auto;
+  }
+
+  /* Support Tab Toggle on Mobile */
+  .studio-layout[data-active-tab="editor"] .studio-preview-col {
+    display: none;
+  }
+  .studio-layout[data-active-tab="preview"] .studio-editor {
+    display: none;
+  }
+}
+
+/* Standard Mobile Screens (<= 640px) */
+@media (max-width: 640px) {
+  .app-header {
+    top: 0;
+  }
+
+  .header-content {
+    padding: 10px 14px;
+    gap: 10px;
+  }
+
+  .brand-group {
+    gap: 10px;
+  }
+
+  .brand-logo {
+    width: 36px;
+    height: 36px;
+    border-radius: var(--radius-sm);
+  }
+
+  .brand-logo svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  .brand-title {
+    font-size: 14.5px;
+    letter-spacing: 0.5px;
+    line-height: 1.15;
+  }
+
+  .brand-tagline {
+    font-size: 9.5px;
+    letter-spacing: 0.4px;
+    margin-top: 1px;
+  }
+
+  .header-actions {
+    gap: 6px;
+  }
+
+  .live-pill span:not(.live-indicator) {
+    display: none;
+  }
+
+  .live-pill {
+    padding: 7px;
+    border-radius: 50%;
+  }
+
+  .official-badge span {
+    display: none;
+  }
+
+  .official-badge {
+    padding: 7px 8px;
+    border-radius: 50%;
+  }
+
+  .mobile-nav-switcher {
+    top: 57px;
+    padding: 8px 12px;
+  }
+
+  .mobile-tab-btn {
+    padding: 9px 12px;
+    font-size: 12.5px;
+  }
+
+  .studio-layout {
+    padding: 0 12px;
+    margin: 12px auto 48px;
+  }
+
+  .panel {
+    border-radius: var(--radius-md);
+  }
+
+  .preset-panel {
+    padding: 14px 14px 16px;
+    margin-bottom: 16px;
+  }
+
+  .preset-header {
+    gap: 10px;
+    margin-bottom: 12px;
+  }
+
+  .panel-icon {
+    width: 30px;
+    height: 30px;
+  }
+
+  .panel-icon svg {
+    width: 16px;
+    height: 16px;
+  }
+
+  .panel-title {
+    font-size: 14px;
+  }
+
+  .panel-desc {
+    font-size: 11px;
+    line-height: 1.35;
+  }
+
+  /* Horizontal swipeable chip list on mobile */
+  .preset-chips {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-type: x mandatory;
+    gap: 8px;
+    padding-bottom: 4px;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  .preset-chips::-webkit-scrollbar {
+    display: none;
+  }
+
+  .preset-chip {
+    flex-shrink: 0;
+    scroll-snap-align: start;
+    font-size: 12px;
+    padding: 7px 14px;
+  }
+
+  .form-panel {
+    padding: 18px 14px;
+  }
+
+  .form-section {
+    margin-bottom: 22px;
+    padding-bottom: 20px;
+  }
+
+  .section-legend {
+    font-size: 14.5px;
+    gap: 8px;
+    margin-bottom: 14px;
+  }
+
+  .step-badge {
+    width: 22px;
+    height: 22px;
+    font-size: 11px;
+  }
+
+  .form-grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  /* iOS Auto-Zoom Prevention: font-size >= 16px */
+  input[type="text"],
+  textarea {
+    font-size: 16px !important;
+    padding: 12px 14px;
+    min-height: 48px;
+    border-radius: var(--radius-sm);
+  }
+
+  textarea {
+    min-height: 78px;
+    line-height: 1.4;
+  }
+
+  .upload-zone {
+    padding: 20px 12px;
+  }
+
+  .upload-icon {
+    width: 40px;
+    height: 40px;
+  }
+
+  .upload-icon svg {
+    width: 19px;
+    height: 19px;
+  }
+
+  .upload-title {
+    font-size: 12.5px;
+  }
+
+  .upload-hint {
+    font-size: 11px;
+  }
+
+  .form-actions {
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 20px;
+  }
+
+  .btn {
+    width: 100%;
+    min-height: 48px;
+    font-size: 13.5px;
+    justify-content: center;
+  }
+
+  .btn-large {
+    padding: 14px 20px;
+  }
+
+  /* Preview Toolbar */
+  .preview-toolbar {
+    margin-bottom: 14px;
+  }
+
+  .toolbar-heading h3 {
+    font-size: 14px;
+  }
+
+  .btn-flip {
+    padding: 8px 14px;
+    font-size: 12px;
+    min-height: 38px;
+  }
+
+  .preview-tip {
+    font-size: 11px;
+    margin-top: 12px;
+  }
+
+  /* Modal Result Dialog on Mobile */
+  .modal-dialog {
+    width: 95%;
+    max-width: 95%;
+    margin: 16px auto;
+  }
+
+  .modal-card {
+    border-radius: 14px;
+  }
+
+  .modal-header {
+    padding: 16px 18px;
+    gap: 12px;
+  }
+
+  .modal-badge-check {
+    width: 38px;
+    height: 38px;
+  }
+
+  .modal-badge-check svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  .modal-title {
+    font-size: 16px;
+  }
+
+  .modal-subtitle {
+    font-size: 11px;
+  }
+
+  .modal-body {
+    padding: 18px 16px;
+  }
+
+  .cert-meta-banner {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+    padding: 14px 16px;
+    margin-bottom: 18px;
+  }
+
+  .meta-label {
+    font-size: 10.5px;
+  }
+
+  .cert-number-display {
+    font-size: clamp(21px, 6.2vw, 25px);
+    word-break: break-all;
+  }
+
+  .btn-copy {
+    width: 100%;
+    justify-content: center;
+    padding: 11px 16px;
+  }
+
+  .modal-actions-grid {
+    grid-template-columns: 1fr;
+    gap: 10px;
+    margin-bottom: 18px;
+  }
+
+  .verify-link-box {
+    padding: 12px 14px;
+    gap: 10px;
+  }
+
+  .modal-footer {
+    padding: 14px 16px;
+  }
+
+  .modal-footer .btn {
+    width: 100%;
+  }
+
+  /* Toast Notifications */
+  .toast-container {
+    left: 14px;
+    right: 14px;
+    bottom: 14px;
+    width: auto;
+  }
+
+  .toast {
+    min-width: unset;
+    width: 100%;
+    padding: 12px 16px;
+    font-size: 13px;
+  }
+}
+
+/* Extra Small Phones (<= 380px) */
+@media (max-width: 380px) {
+  .header-content {
+    padding: 8px 10px;
+  }
+
+  .brand-title {
+    font-size: 13px;
+    letter-spacing: 0.3px;
+  }
+
+  .brand-tagline {
+    display: none;
+  }
+
+  .mobile-tab-btn {
+    padding: 8px 10px;
+    font-size: 11.5px;
+  }
+
+  .cert-number-display {
+    font-size: 19px;
+  }
 }

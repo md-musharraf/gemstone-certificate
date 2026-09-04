@@ -200,9 +200,31 @@ function verificationPage(c, number) {
       align-items: start;
     }
     @media (max-width: 768px) {
-      .grid-layout { grid-template-columns: 1fr; }
-      .portal-header { flex-direction: column; align-items: flex-start; }
-      .cert-heading { flex-direction: column; }
+      body { padding: 20px 12px; }
+      .portal-container { border-radius: 12px; }
+      .portal-header { padding: 18px 20px; flex-direction: column; align-items: flex-start; gap: 12px; }
+      .brand-title { font-size: 17px; }
+      .portal-body { padding: 20px 16px; }
+      .cert-heading { flex-direction: column; gap: 12px; }
+      .cert-name { font-size: 23px; }
+      .cert-id-tag { width: 100%; text-align: center; font-size: 16px; padding: 8px 14px; }
+      .grid-layout { grid-template-columns: 1fr; gap: 20px; }
+      .specimen-card { padding: 14px; }
+      .specimen-photo { height: 180px; }
+      .action-bar { flex-direction: column; gap: 10px; }
+      .action-bar .btn { width: 100%; justify-content: center; }
+      .search-form { flex-direction: column; }
+      .search-form .btn { width: 100%; }
+    }
+
+    @media (max-width: 480px) {
+      body { padding: 12px 8px; }
+      .brand-title { font-size: 15px; }
+      .brand-subtitle { font-size: 9.5px; }
+      .specs-table th { width: 45%; font-size: 10px; padding: 10px 6px; }
+      .specs-table td { font-size: 13px; padding: 10px 6px; }
+      .comments-box { padding: 12px 14px; }
+      .comments-text { font-size: 12px; }
     }
     .specimen-card {
       background: #F8FAFC;

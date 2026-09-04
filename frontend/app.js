@@ -428,5 +428,60 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Initial preset load
   loadPreset('sapphire');
+
+  // Mobile Tab & Floating Button View Switcher
+  const studioLayout = document.querySelector('.studio-layout');
+  const tabBtnEditor = document.getElementById('tab-btn-editor');
+  const tabBtnPreview = document.getElementById('tab-btn-preview');
+  const mobileFloatingBtn = document.getElementById('mobile-floating-btn');
+  const floatingBtnText = document.getElementById('floating-btn-text');
+  const previewSection = document.getElementById('studio-preview-col');
+  const editorSection = document.getElementById('studio-editor');
+
+  function setMobileActiveTab(target) {
+    if (!studioLayout) return;
+    studioLayout.setAttribute('data-active-tab', target);
+
+    if (target === 'preview') {
+      if (tabBtnPreview) tabBtnPreview.classList.add('active');
+      if (tabBtnEditor) tabBtnEditor.classList.remove('active');
+      if (floatingBtnText) floatingBtnText.textContent = 'Edit Form';
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    } else {
+      if (tabBtnEditor) tabBtnEditor.classList.add('active');
+      if (tabBtnPreview) tabBtnPreview.classList.remove('active');
+      if (floatingBtnText) floatingBtnText.textContent = 'View Card';
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  }
+
+  if (tabBtnEditor) {
+    tabBtnEditor.addEventListener('click', () => setMobileActiveTab('editor'));
+  }
+  if (tabBtnPreview) {
+    tabBtnPreview.addEventListener('click', () => setMobileActiveTab('preview'));
+  }
+
+  if (mobileFloatingBtn) {
+    mobileFloatingBtn.addEventListener('click', () => {
+      const current = studioLayout ? (studioLayout.getAttribute('data-active-tab') || 'editor') : 'editor';
+      const next = current === 'preview' ? 'editor' : 'preview';
+      setMobileActiveTab(next);
+    });
+  }
+
+  // Set initial default tab on mobile/tablet
+  if (window.innerWidth <= 1024 && studioLayout) {
+    studioLayout.setAttribute('data-active-tab', 'editor');
+  }
+
+  window.addEventListener('resize', () => {
+    if (window.innerWidth > 1024 && studioLayout) {
+      studioLayout.removeAttribute('data-active-tab');
+    } else if (window.innerWidth <= 1024 && studioLayout && !studioLayout.getAttribute('data-active-tab')) {
+      studioLayout.setAttribute('data-active-tab', 'editor');
+    }
+  });
+
 });
 
