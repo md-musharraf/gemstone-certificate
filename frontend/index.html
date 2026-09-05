@@ -201,179 +201,146 @@
         <div class="preview-toolbar">
           <div class="toolbar-heading">
             <span class="pulse-dot"></span>
-            <h3>Live Card Preview</h3>
+            <h3>ATM Card Live Preview</h3>
           </div>
-          <button type="button" id="flip-card-btn" class="btn-flip">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 4 23 10 17 10"></polyline><polyline points="1 20 1 14 7 14"></polyline><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"></path></svg>
-            <span id="flip-label">Flip to Reverse</span>
-          </button>
+          <div class="card-format-tag">
+            <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="5" width="20" height="14" rx="2"></rect><line x1="2" y1="10" x2="22" y2="10"></line></svg>
+            <span>CR80 Single-Sided</span>
+          </div>
         </div>
 
-        <!-- 3D Card Scene -->
-        <div class="card-scene" id="card-scene">
-          <div class="card-flipper" id="card-flipper">
-            <!-- FRONT SIDE -->
-            <div class="card-face card-front">
-              <div class="card-inner-border"></div>
-              <div class="card-corner tl"></div>
-              <div class="card-corner tr"></div>
-              <div class="card-corner bl"></div>
-              <div class="card-corner br"></div>
+        <!-- Single-Sided ATM Card Container (ISO/IEC 7810 CR80: 85.6 x 54 mm) -->
+        <div class="atm-card-scene" id="card-scene">
+          <div class="atm-card" id="atm-card">
+            <div class="atm-inner-border"></div>
+            <div class="atm-corner tl"></div>
+            <div class="atm-corner tr"></div>
+            <div class="atm-corner bl"></div>
+            <div class="atm-corner br"></div>
 
-              <!-- Header -->
-              <div class="c-header">
-                <div class="c-logo-wrap">
-                  <svg class="c-diamond" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-                    <path d="M6 3h12l4 7-10 11L2 10l4-7z"></path>
-                    <path d="M2 10h20"></path>
-                    <path d="M10 3l-4 7 6 11 6-11-4-7"></path>
-                  </svg>
-                  <div>
-                    <div class="c-lab-title">INTERNATIONAL GEMOLOGICAL ARCHIVE</div>
-                    <div class="c-lab-sub">AUTHENTICITY • IDENTIFICATION • LABORATORY REPORT</div>
-                  </div>
-                </div>
-                <div class="c-report-badge">
-                  <div class="c-badge-title">IDENTIFICATION CARD</div>
-                  <div class="c-badge-no" id="live-cert-no">REPORT #JGT-PREVIEW</div>
+            <!-- Header -->
+            <div class="atm-header">
+              <div class="atm-logo-wrap">
+                <svg class="atm-diamond" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                  <path d="M6 3h12l4 7-10 11L2 10l4-7z"></path>
+                  <path d="M2 10h20"></path>
+                  <path d="M10 3l-4 7 6 11 6-11-4-7"></path>
+                </svg>
+                <div>
+                  <div class="atm-lab-title">INTERNATIONAL GEMOLOGICAL ARCHIVE</div>
+                  <div class="atm-lab-sub">AUTHENTICITY • IDENTIFICATION • LABORATORY REPORT</div>
                 </div>
               </div>
-
-              <!-- Body: Photo & Specs -->
-              <div class="c-front-body">
-                <!-- Left Photo & Seal -->
-                <div class="c-photo-col">
-                  <div class="c-photo-frame">
-                    <img id="live-photo" class="hidden" src="" alt="Specimen">
-                    <div id="live-placeholder" class="c-vector-gem">
-                      <svg viewBox="0 0 24 24" fill="none" stroke="#C5A059" stroke-width="1.4">
-                        <polygon points="6,3 18,3 22,9 12,21 2,9" fill="#FDF8EC"/>
-                        <polyline points="2,9 22,9"/>
-                        <line x1="10" y1="3" x2="8" y2="9"/>
-                        <line x1="8" y1="9" x2="12" y2="21"/>
-                        <line x1="14" y1="3" x2="16" y2="9"/>
-                        <line x1="16" y1="9" x2="12" y2="21"/>
-                        <line x1="8" y1="9" x2="16" y2="9"/>
-                      </svg>
-                      <span>OFFICIAL SPECIMEN</span>
-                    </div>
-                  </div>
-                  <!-- Embossed Gold Seal -->
-                  <div class="c-seal">
-                    <div class="c-seal-rays"></div>
-                    <div class="c-seal-inner">
-                      <span class="c-seal-text">VERIFIED</span>
-                      <span class="c-seal-sub">GENUINE LAB</span>
-                    </div>
-                  </div>
-                </div>
-
-                <!-- Right Spec Column -->
-                <div class="c-spec-col">
-                  <div class="c-section-tag">GEMSTONE IDENTIFICATION</div>
-                  <div class="c-gem-name" id="live-name">Natural Royal Blue Sapphire</div>
-
-                  <div class="c-rows">
-                    <div class="c-row"><span class="c-k">WEIGHT / CARAT</span><span class="c-v bold" id="live-weight">3.85 ct</span></div>
-                    <div class="c-row"><span class="c-k">SHAPE / CUT</span><span class="c-v" id="live-shape">Cushion Mixed Cut</span></div>
-                    <div class="c-row"><span class="c-k">COLOUR GRADE</span><span class="c-v" id="live-colour">Vivid Royal Blue</span></div>
-                    <div class="c-row"><span class="c-k">SPECIES / GROUP</span><span class="c-v" id="live-species">Natural Corundum</span></div>
-                    <div class="c-row"><span class="c-k">CLARITY GRADE</span><span class="c-v" id="live-clarity">Eye Clean (VVS)</span></div>
-                    <div class="c-row"><span class="c-k">ISSUED TO</span><span class="c-v" id="live-issued">Crown Gemological Gallery Ltd.</span></div>
-                    <div class="c-row"><span class="c-k">ISSUE DATE</span><span class="c-v" id="live-date">Today</span></div>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Footer -->
-              <div class="c-footer">
-                <span>SECURITY DOCUMENT • GENUINE REGISTERED IDENTIFICATION REPORT • SCAN REVERSE QR TO VERIFY</span>
+              <div class="atm-report-badge">
+                <div class="atm-badge-title">CR80 ATM CARD</div>
+                <div class="atm-badge-no" id="live-cert-no">REPORT #JGT-PREVIEW</div>
               </div>
             </div>
 
-            <!-- BACK SIDE -->
-            <div class="card-face card-back">
-              <div class="card-inner-border"></div>
-              <div class="card-corner tl"></div>
-              <div class="card-corner tr"></div>
-              <div class="card-corner bl"></div>
-              <div class="card-corner br"></div>
-
-              <!-- Back Header -->
-              <div class="c-header c-back-header">
-                <div class="c-lab-title">ANALYTICAL GEMOLOGICAL REPORT</div>
-                <div class="c-badge-no" id="live-back-no">OFFICIAL RECORD • ID: PREVIEW</div>
-              </div>
-
-              <!-- Back Body -->
-              <div class="c-back-body">
-                <!-- Left: Physical props & Comments & Signature -->
-                <div class="c-back-left">
-                  <div class="c-section-tag">PHYSICAL & OPTICAL PROPERTIES</div>
-                  <div class="c-rows">
-                    <div class="c-row"><span class="c-k">REFRACTIVE INDEX</span><span class="c-v" id="live-ri">1.762 - 1.770</span></div>
-                    <div class="c-row"><span class="c-k">HARDNESS (MOHS)</span><span class="c-v" id="live-hardness">9.0 Mohs</span></div>
-                    <div class="c-row"><span class="c-k">CLARITY SCALE</span><span class="c-v" id="live-clarity-back">Eye Clean (VVS)</span></div>
-                    <div class="c-row"><span class="c-k">SPECIES / GROUP</span><span class="c-v" id="live-species-back">Natural Corundum</span></div>
-                  </div>
-
-                  <div class="c-comments-box">
-                    <div class="c-comments-k">LABORATORY COMMENTS & OBSERVATIONS:</div>
-                    <div class="c-comments-v" id="live-comments">No indications of thermal treatment (Unheated). Origin: Ceylon (Sri Lanka).</div>
-                  </div>
-
-                  <div class="c-signature-wrap">
-                    <span class="c-sig-label">AUTHORIZED SIGNATURE</span>
-                    <svg class="c-signature-svg" viewBox="0 0 100 24" fill="none" stroke="#071527" stroke-width="1.6">
-                      <path d="M5 18 C 15 6, 25 22, 42 12 C 52 6, 62 18, 80 10 C 88 6, 95 14, 98 12"/>
+            <!-- Body: 3-Zone Architecture (Photo | Specifications | QR & Sign) -->
+            <div class="atm-body">
+              <!-- Zone 1: Photo & Seal & Date -->
+              <div class="atm-col-photo">
+                <div class="atm-photo-frame">
+                  <img id="live-photo" class="hidden" src="" alt="Specimen">
+                  <div id="live-placeholder" class="atm-vector-gem">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="#C5A059" stroke-width="1.4">
+                      <polygon points="6,3 18,3 22,9 12,21 2,9" fill="#FDF8EC"/>
+                      <polyline points="2,9 22,9"/>
+                      <line x1="10" y1="3" x2="8" y2="9"/>
+                      <line x1="8" y1="9" x2="12" y2="21"/>
+                      <line x1="14" y1="3" x2="16" y2="9"/>
+                      <line x1="16" y1="9" x2="12" y2="21"/>
+                      <line x1="8" y1="9" x2="16" y2="9"/>
                     </svg>
-                    <div class="c-sig-line"></div>
-                    <div class="c-sig-title">Chief Senior Gemologist, FGA DGA</div>
+                    <span>SPECIMEN</span>
                   </div>
                 </div>
 
-                <!-- Right: QR Code & Verification info -->
-                <div class="c-back-right">
-                  <div class="c-qr-container">
-                    <div class="c-qr-mock">
-                      <svg viewBox="0 0 100 100" fill="#071527">
-                        <!-- QR Mock pattern -->
-                        <rect x="10" y="10" width="26" height="26" fill="none" stroke="#071527" stroke-width="5"/>
-                        <rect x="17" y="17" width="12" height="12"/>
-                        <rect x="64" y="10" width="26" height="26" fill="none" stroke="#071527" stroke-width="5"/>
-                        <rect x="71" y="17" width="12" height="12"/>
-                        <rect x="10" y="64" width="26" height="26" fill="none" stroke="#071527" stroke-width="5"/>
-                        <rect x="17" y="71" width="12" height="12"/>
-                        <rect x="42" y="14" width="8" height="8"/>
-                        <rect x="42" y="28" width="8" height="14"/>
-                        <rect x="14" y="42" width="14" height="8"/>
-                        <rect x="34" y="42" width="16" height="16"/>
-                        <rect x="56" y="42" width="8" height="16"/>
-                        <rect x="70" y="42" width="16" height="8"/>
-                        <rect x="42" y="64" width="8" height="22"/>
-                        <rect x="56" y="64" width="18" height="8"/>
-                        <rect x="80" y="56" width="8" height="16"/>
-                        <rect x="68" y="78" width="18" height="8"/>
-                      </svg>
-                    </div>
-                    <div class="c-qr-label">SCAN TO VERIFY</div>
-                    <div class="c-qr-sub">Instant 24/7 Digital Registry Validation</div>
-                    <div class="c-qr-pill">SECURE QR VALIDATION</div>
+                <div class="atm-seal">
+                  <div class="atm-seal-inner">
+                    <span class="atm-seal-text">VERIFIED</span>
+                    <span class="atm-seal-sub">LAB</span>
                   </div>
+                </div>
+
+                <div class="atm-date-tag">
+                  <span>DATE: </span><span id="live-date">Today</span>
                 </div>
               </div>
 
-              <!-- Back Footer -->
-              <div class="c-footer">
-                <span>THIS IDENTIFICATION CARD REPRESENTS THE OPINION OF SPECIALIZED GEMOLOGICAL EXPERTS • ALL RIGHTS RESERVED</span>
+              <!-- Zone 2: Specifications Table -->
+              <div class="atm-col-specs">
+                <div class="atm-section-tag">GEMSTONE IDENTIFICATION</div>
+                <div class="atm-gem-name" id="live-name">Natural Royal Blue Sapphire</div>
+
+                <div class="atm-rows">
+                  <div class="atm-row"><span class="atm-k">WEIGHT</span><span class="atm-v" id="live-weight">3.85 ct</span></div>
+                  <div class="atm-row"><span class="atm-k">SHAPE/CUT</span><span class="atm-v" id="live-shape">Cushion Mixed Cut</span></div>
+                  <div class="atm-row"><span class="atm-k">COLOUR</span><span class="atm-v" id="live-colour">Vivid Royal Blue</span></div>
+                  <div class="atm-row"><span class="atm-k">SPECIES</span><span class="atm-v" id="live-species">Natural Corundum</span></div>
+                  <div class="atm-row"><span class="atm-k">REFR. INDEX</span><span class="atm-v" id="live-ri">1.762 - 1.770</span></div>
+                  <div class="atm-row"><span class="atm-k">HARDNESS</span><span class="atm-v" id="live-hardness">9.0 Mohs</span></div>
+                  <div class="atm-row"><span class="atm-k">CLARITY</span><span class="atm-v" id="live-clarity">Eye Clean (VVS)</span></div>
+                  <div class="atm-row"><span class="atm-k">ISSUED TO</span><span class="atm-v" id="live-issued">Crown Gemological Gallery Ltd.</span></div>
+                </div>
+
+                <div class="atm-comments-box">
+                  <div class="atm-comments-k">REMARKS & OBSERVATIONS:</div>
+                  <div class="atm-comments-v" id="live-comments">No thermal treatment. Ceylon origin.</div>
+                </div>
               </div>
+
+              <!-- Zone 3: Scannable QR Code & Signature -->
+              <div class="atm-col-qr">
+                <div class="atm-qr-box">
+                  <div class="atm-qr-img">
+                    <svg viewBox="0 0 100 100" fill="#071527">
+                      <rect x="10" y="10" width="26" height="26" fill="none" stroke="#071527" stroke-width="5"/>
+                      <rect x="17" y="17" width="12" height="12"/>
+                      <rect x="64" y="10" width="26" height="26" fill="none" stroke="#071527" stroke-width="5"/>
+                      <rect x="71" y="17" width="12" height="12"/>
+                      <rect x="10" y="64" width="26" height="26" fill="none" stroke="#071527" stroke-width="5"/>
+                      <rect x="17" y="71" width="12" height="12"/>
+                      <rect x="42" y="14" width="8" height="8"/>
+                      <rect x="42" y="28" width="8" height="14"/>
+                      <rect x="14" y="42" width="14" height="8"/>
+                      <rect x="34" y="42" width="16" height="16"/>
+                      <rect x="56" y="42" width="8" height="16"/>
+                      <rect x="70" y="42" width="16" height="8"/>
+                      <rect x="42" y="64" width="8" height="22"/>
+                      <rect x="56" y="64" width="18" height="8"/>
+                      <rect x="80" y="56" width="8" height="16"/>
+                      <rect x="68" y="78" width="18" height="8"/>
+                    </svg>
+                  </div>
+                  <div class="atm-qr-label">SCAN TO VERIFY</div>
+                  <div class="atm-qr-sub">Digital Registry</div>
+                </div>
+
+                <div class="atm-record-pill">OFFICIAL RECORD</div>
+
+                <div class="atm-sig-wrap">
+                  <span class="atm-sig-label">AUTH. SIGNATURE</span>
+                  <svg class="atm-sig-svg" viewBox="0 0 100 24" fill="none" stroke="#071527" stroke-width="1.6">
+                    <path d="M5 18 C 15 6, 25 22, 42 12 C 52 6, 62 18, 80 10 C 88 6, 95 14, 98 12"/>
+                  </svg>
+                  <div class="atm-sig-line"></div>
+                  <div class="atm-sig-title">Chief Gemologist, FGA</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Bottom Security Footer -->
+            <div class="atm-footer">
+              <span>ALL-IN-ONE ATM CARD • ISO/IEC 7810 CR80 FORMAT • VERIFIED GEMOLOGICAL ARCHIVE</span>
             </div>
           </div>
         </div>
 
         <p class="preview-tip">
           <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
-          Card size: Standard ISO/IEC 7810 CR80 (85.6 × 54 mm). Ready for high-resolution dual-sided card printing.
+          ATM Card Standard (85.6 × 54 mm) • Single-Sided Print Ready (Zero Backside).
         </p>
       </div>
     </aside>

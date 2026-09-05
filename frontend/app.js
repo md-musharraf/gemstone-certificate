@@ -8,9 +8,9 @@ document.addEventListener('DOMContentLoaded', () => {
   const submitBtn = document.getElementById('submit-btn');
   const resetBtn = document.getElementById('reset-btn');
 
-  const cardFlipper = document.getElementById('card-flipper');
-  const flipBtn = document.getElementById('flip-card-btn');
-  const flipLabel = document.getElementById('flip-label');
+  // cardFlipper removed for single-sided
+  // flipBtn removed
+  // flipLabel removed
   const presetChips = document.querySelectorAll('.preset-chip');
 
   // Upload elements
@@ -29,9 +29,9 @@ document.addEventListener('DOMContentLoaded', () => {
   const liveShape = document.getElementById('live-shape');
   const liveColour = document.getElementById('live-colour');
   const liveSpecies = document.getElementById('live-species');
-  const liveSpeciesBack = document.getElementById('live-species-back');
+  const liveSpeciesBack = null;
   const liveClarity = document.getElementById('live-clarity');
-  const liveClarityBack = document.getElementById('live-clarity-back');
+  const liveClarityBack = null;
   const liveIssued = document.getElementById('live-issued');
   const liveDate = document.getElementById('live-date');
   const liveRi = document.getElementById('live-ri');
@@ -40,7 +40,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const livePhoto = document.getElementById('live-photo');
   const livePlaceholder = document.getElementById('live-placeholder');
   const liveCertNo = document.getElementById('live-cert-no');
-  const liveBackNo = document.getElementById('live-back-no');
+  const liveBackNo = null;
 
   // Result Dialog Elements
   const resultDialog = document.getElementById('result-dialog');
@@ -201,14 +201,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // Card Flip Toggle
-  if (flipBtn && cardFlipper) {
-    flipBtn.addEventListener('click', () => {
-      cardFlipper.classList.toggle('flipped');
-      const isFlipped = cardFlipper.classList.contains('flipped');
-      flipLabel.textContent = isFlipped ? 'Flip to Front' : 'Flip to Reverse';
-    });
-  }
+  // Single-sided card: No flip needed
 
   // Enforce pure luxury light theme
   localStorage.removeItem('iga-theme');
